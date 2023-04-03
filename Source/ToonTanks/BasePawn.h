@@ -24,6 +24,9 @@ public:
 	UPROPERTY(VisibleInstanceOnly)
 	int32 VisibleInstanceOnlyInt = 12;
 
+	UPROPERTY(EditAnyWhere)
+	float Test = 12.0f;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
