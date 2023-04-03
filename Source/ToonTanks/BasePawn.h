@@ -20,8 +20,22 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+
+	// Create Capsule Component to Pawn
 	UPROPERTY()
 	class UCapsuleComponent* CapsuleComp;
+
+	// Create Static Mesh Component to Base of Actor
+	UPROPERTY()
+	UStaticMeshComponent* BaseMesh;
+
+	// Create Static Mesh Component to Turrent of Actor
+	UPROPERTY()
+	UStaticMeshComponent* TurrentMesh;
+
+	// Create Scene Component to Projectile of Actor
+	UPROPERTY()
+	USceneComponent* ProjectileSpawnPoint;
 
 public:	
 	// Called every frame
