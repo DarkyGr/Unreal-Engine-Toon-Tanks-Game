@@ -50,19 +50,19 @@ protected:
 private:
 
 	// Create Capsule Component to Pawn
-	UPROPERTY()
+	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	class UCapsuleComponent* CapsuleComp;
 
 	// Create Static Mesh Component to Base of Actor
-	UPROPERTY()
+	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh;
 
 	// Create Static Mesh Component to Turrent of Actor
-	UPROPERTY()
+	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* TurrentMesh;
 
 	// Create Scene Component to Projectile of Actor
-	UPROPERTY()
+	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 
 	/*
