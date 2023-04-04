@@ -35,14 +35,19 @@ public:
 	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite)
 	int32 VisibleAnyWhereInt = 12;
 
-	UPROPERTY(EditAnyWhere)
+	UPROPERTY(EditAnyWhere, BlueprintReadOnly)
 	int32 EditAnyWhereInt = 12;
 
-	UPROPERTY(EditAnyWhere)
-	float Test = 12.0f;
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite)
+	float TestVariable = 12.0f;
 
+	/*
+		Exponed Variables in Event Graph use in UPROPERTY([PROPERTY], BlueprintReadWrite) || UPROPERTY([PROPERTY], BlueprintReadOnly)
 
-	// Exponed Variables in Event Graph use in UPROPERTY ([PROPERTY], BlueprintReadWrite)
+		- BlueprintReadWrite: gives the user GET and SET access to the variable
+		- BlueprintReadOnly: gives the user GET access to the variable
+
+	*/
 
 protected:
 	// Called when the game starts or when spawned
