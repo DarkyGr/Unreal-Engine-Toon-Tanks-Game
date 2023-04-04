@@ -31,13 +31,7 @@ public:
 	int32 EditDefaultsOnlyInt = 10;
 	
 
-	// Read & Write only in both	
-	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite)
-	int32 VisibleAnyWhereInt = 12;
-
-	UPROPERTY(EditAnyWhere, BlueprintReadOnly)
-	int32 EditAnyWhereInt = 12;
-
+	// Read & Write only in both
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite)
 	float TestVariable = 12.0f;
 
@@ -70,6 +64,26 @@ private:
 	// Create Scene Component to Projectile of Actor
 	UPROPERTY()
 	USceneComponent* ProjectileSpawnPoint;
+
+	/*
+		When using private, and you want to expose to Event Graph, you require a third property on UPROPERTY:
+		- meta = (AllowPrivateAccess = "true") ... for example:
+			UPROPERTY([PROPERTY], [PROPERTY of Event Graph], meta = (AllowPrivateAccess = "true"))		
+	*/
+
+	/*
+		You can add a category for the variables you add.
+		This can be done with a new property in UPROPERTY
+			UPROPERTY([PROPERTY], [PROPERTY of Event Graph], Category = "Example Name", meta = (AllowPrivateAccess = "true"))
+		
+		*** If you name the category with an existing name, this variable will be added to that same category
+	*/
+
+	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
+	int32 VisibleAnyWhereInt = 12;
+
+	UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
+	int32 EditAnyWhereInt = 12;
 
 public:	
 	// Called every frame
