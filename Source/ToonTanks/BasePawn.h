@@ -15,17 +15,34 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-	UPROPERTY(VisibleAnyWhere)
+	// Read & Write only in the Instance
+	UPROPERTY(VisibleInstanceOnly)
+	int32 VisibleInstanceOnlyInt = 12;
+
+	UPROPERTY(EditInstanceOnly)
+	int32 EditInstanceOnlyInt = 11;
+
+
+	// Read & Write only in the Default
+	UPROPERTY(VisibleDefaultsOnly)
+	int32 VisibleDefaultsOnlyInt = 5;
+
+	UPROPERTY(EditDefaultsOnly)
+	int32 EditDefaultsOnlyInt = 10;
+	
+
+	// Read & Write only in both	
+	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite)
 	int32 VisibleAnyWhereInt = 12;
 
 	UPROPERTY(EditAnyWhere)
 	int32 EditAnyWhereInt = 12;
 
-	UPROPERTY(VisibleInstanceOnly)
-	int32 VisibleInstanceOnlyInt = 12;
-
 	UPROPERTY(EditAnyWhere)
 	float Test = 12.0f;
+
+
+	// Exponed Variables in Event Graph use in UPROPERTY ([PROPERTY], BlueprintReadWrite)
 
 protected:
 	// Called when the game starts or when spawned
