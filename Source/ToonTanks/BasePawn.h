@@ -15,25 +15,26 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-	// Read & Write only in the Instance
-	UPROPERTY(VisibleInstanceOnly)
-	int32 VisibleInstanceOnlyInt = 12;
 
-	UPROPERTY(EditInstanceOnly)
-	int32 EditInstanceOnlyInt = 11;
+	// Read & Write only in the Instance
+	// UPROPERTY(VisibleInstanceOnly)
+	// int32 VisibleInstanceOnlyInt = 12;
+
+	// UPROPERTY(EditInstanceOnly)
+	// int32 EditInstanceOnlyInt = 11;
 
 
 	// Read & Write only in the Default
-	UPROPERTY(VisibleDefaultsOnly)
-	int32 VisibleDefaultsOnlyInt = 5;
+	// UPROPERTY(VisibleDefaultsOnly)
+	// int32 VisibleDefaultsOnlyInt = 5;
 
-	UPROPERTY(EditDefaultsOnly)
-	int32 EditDefaultsOnlyInt = 10;
+	// UPROPERTY(EditDefaultsOnly)
+	// int32 EditDefaultsOnlyInt = 10;
 	
 
 	// Read & Write only in both
-	UPROPERTY(EditAnyWhere, BlueprintReadWrite)
-	float TestVariable = 12.0f;
+	// UPROPERTY(EditAnyWhere, BlueprintReadWrite)
+	// float TestVariable = 12.0f;
 
 	/*
 		Exponed Variables in Event Graph use in UPROPERTY([PROPERTY], BlueprintReadWrite) || UPROPERTY([PROPERTY], BlueprintReadOnly)
@@ -79,11 +80,11 @@ private:
 		*** If you name the category with an existing name, this variable will be added to that same category
 	*/
 
-	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
-	int32 VisibleAnyWhereInt = 12;
+	// UPROPERTY(VisibleAnyWhere, BlueprintReadWrite, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
+	// int32 VisibleAnyWhereInt = 12;
 
-	UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
-	int32 EditAnyWhereInt = 12;
+	// UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
+	// int32 EditAnyWhereInt = 12;
 
 public:	
 	// Called every frame

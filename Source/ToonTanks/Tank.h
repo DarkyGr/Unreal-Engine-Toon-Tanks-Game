@@ -29,9 +29,10 @@ private:
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "POV", meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* CameraCom;
 
+	// Varibale Speed to Tank
+	UPROPERTY(EditAnyWhere, Category = "Movement")
+	float speed = 200.f;
+
 	// Method to Move the tank
-	void Move(float value);
+	void Move(float value);	
 };
-
-
-
