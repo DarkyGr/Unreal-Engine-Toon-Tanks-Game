@@ -2,4 +2,14 @@
 
 
 #include "Tank.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 
+ATank::ATank()
+{
+    ArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
+    ArmComp->SetupAttachment(RootComponent);
+
+    CameraCom = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+    CameraCom->SetupAttachment(ArmComp);
+}
