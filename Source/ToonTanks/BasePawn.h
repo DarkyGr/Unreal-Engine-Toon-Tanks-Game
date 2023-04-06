@@ -82,8 +82,4 @@ private:
 	// UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
 	// int32 EditAnyWhereInt = 12;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 };

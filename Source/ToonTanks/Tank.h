@@ -24,6 +24,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 private:
 	// Create Spring Arm Component
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "POV", meta = (AllowPrivateAccess = "true"))
