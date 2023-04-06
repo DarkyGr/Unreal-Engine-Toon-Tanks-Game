@@ -39,10 +39,21 @@ void ATank::Tick(float DeltaTime)
     {
         FHitResult HitResult;
 
+        // Get the HitResult of Collisions Visibles
         PlayerControllerRef->GetHitResultUnderCursor(
             ECollisionChannel::ECC_Visibility, 
             false,
-            HitResult);            
+            HitResult); 
+
+        // Draw sphere in front of our tank
+        DrawDebugSphere(
+            GetWorld(), 
+            HitResult.ImpactPoint,
+            25.f,
+            12,
+            FColor::Red,
+            false,
+            -1.f);
     }
     
 }
@@ -53,17 +64,7 @@ void ATank::BeginPlay()
 	Super::BeginPlay();
 
     // Cast AController to PLayerController
-    PlayerControllerRef = Cast<APlayerController>(GetController());
-    
-    // Draw sphere in front of our tank
-    DrawDebugSphere(
-        GetWorld(), 
-        GetActorLocation() + FVector(0.f, 0.f, 200.f),
-        100.f,
-        12,
-        FColor::Red,
-        true,
-        30.f);
+    PlayerControllerRef = Cast<APlayerController>(GetController());    
 }
 
 void ATank::Move(float value)
