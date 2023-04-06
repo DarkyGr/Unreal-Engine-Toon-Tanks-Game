@@ -34,6 +34,8 @@ void ATank::Move(float value)
 
     // X = value * DeltaTime * Speed
 	DeltaLocation.X = value * speed * UGameplayStatics::GetWorldDeltaSeconds(this);
-	AddActorLocalOffset(DeltaLocation);
+	
+    // Enabled Collision with true
+    AddActorLocalOffset(DeltaLocation, true);
 
 }
