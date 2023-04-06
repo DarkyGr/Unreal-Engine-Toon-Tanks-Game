@@ -14,6 +14,10 @@ class TOONTANKS_API ATank : public ABasePawn
 {
 	GENERATED_BODY()
 
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 public:
 	ATank();
 
@@ -41,4 +45,6 @@ private:
 
 	// Method to Turn the tank
 	void Turn(float value);	
+
+	APlayerController* PlayerControllerRef;
 };

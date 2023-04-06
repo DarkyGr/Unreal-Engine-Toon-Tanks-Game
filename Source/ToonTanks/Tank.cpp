@@ -28,6 +28,15 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 }
 
+// Called when the game starts or when spawned
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
+
+    // Cast AController to PLayerController
+    PlayerControllerRef = Cast<APlayerController>(GetController());	
+}
+
 void ATank::Move(float value)
 {
     // UE_LOG(LogTemp, Warning, TEXT("Value: %f"), value);
