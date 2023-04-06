@@ -35,4 +35,7 @@ private:
 
 	// Method to Move the tank
 	void Move(float value);	
+
+	// Method to Turn the tank
+	void Turn(float value);	
 };

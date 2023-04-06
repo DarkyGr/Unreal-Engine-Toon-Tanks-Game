@@ -23,6 +23,9 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
     // Setup The move for the AXIS
     PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
+
+    // Setup the turn for the AXIS
+    PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 }
 
 void ATank::Move(float value)
@@ -38,4 +41,9 @@ void ATank::Move(float value)
     // Enabled Collision with true
     AddActorLocalOffset(DeltaLocation, true);
 
+}
+
+void ATank::Turn(float value)
+{
+    UE_LOG(LogTemp, Warning, TEXT("Value: %f"), value);
 }
