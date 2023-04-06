@@ -35,7 +35,7 @@ void ATank::Move(float value)
     // Create FVector and set all axis equal to 0
 	FVector DeltaLocation = FVector::ZeroVector;    
 
-    // X = value * DeltaTime * Speed
+    // X = value * Speed * DeltaTime
 	DeltaLocation.X = value * speed * UGameplayStatics::GetWorldDeltaSeconds(this);
 	
     // Enabled Collision with true
@@ -45,5 +45,14 @@ void ATank::Move(float value)
 
 void ATank::Turn(float value)
 {
-    UE_LOG(LogTemp, Warning, TEXT("Value: %f"), value);
+    // UE_LOG(LogTemp, Warning, TEXT("Value: %f"), value);
+
+    // Create FRotator and set all axis equal to 0   
+    FRotator DeltaRotation = FRotator::ZeroRotator;
+
+    // Yaw = value * DeltaTime * TurnRate
+    DeltaRotation.Yaw = value * TurnRate * UGameplayStatics::GetWorldDeltaSeconds(this);
+
+    // Enabled Collision with true
+    AddActorLocalRotation(DeltaRotation, true);
 }

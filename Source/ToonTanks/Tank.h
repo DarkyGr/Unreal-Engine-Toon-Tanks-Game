@@ -33,6 +33,9 @@ private:
 	UPROPERTY(EditAnyWhere, Category = "Movement")
 	float speed = 200.f;
 
+	UPROPERTY(EditAnyWhere, Category = "Movement")
+	float TurnRate = 45.f;
+
 	// Method to Move the tank
 	void Move(float value);	
 
