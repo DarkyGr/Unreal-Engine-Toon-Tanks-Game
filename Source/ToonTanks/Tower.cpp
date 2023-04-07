@@ -16,8 +16,11 @@ void ATower::Tick(float DeltaTime)
         float distance = FVector::Dist(GetActorLocation(), Tank->GetActorLocation());
 
         // Check to see if the Tank is in range
-
-        // If in range, rotate turrent
+        if (distance <= FireRange)
+        {
+            // If in range, rotate turrent
+            RotateTurrent(Tank->GetActorLocation());
+        }       
     }
 }
 
