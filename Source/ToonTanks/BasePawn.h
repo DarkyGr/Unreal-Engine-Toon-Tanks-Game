@@ -47,6 +47,9 @@ protected:
 	// Method to Rotate Turrent
 	void RotateTurrent(FVector LookAtTarget);
 
+	// Method to Fire Projectile
+	void Fire();
+
 private:
 
 	// Create Capsule Component to Pawn

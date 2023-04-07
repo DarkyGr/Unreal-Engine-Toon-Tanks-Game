@@ -26,6 +26,9 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
     // Setup the turn for the AXIS
     PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
+
+    // Setup the fire for the Mouse
+    PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
 
 // Called every frame
