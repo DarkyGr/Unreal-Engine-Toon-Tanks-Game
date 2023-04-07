@@ -15,7 +15,6 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-
 	// Read & Write only in the Instance
 	// UPROPERTY(VisibleInstanceOnly)
 	// int32 VisibleInstanceOnlyInt = 12;
@@ -43,6 +42,10 @@ public:
 		- BlueprintReadOnly: gives the user GET access to the variable
 
 	*/
+
+protected:
+	// Method to Rotate Turrent
+	void RotateTurrent(FVector LookAtTarget);
 
 private:
 
