@@ -6,7 +6,6 @@
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "DrawDebugHelpers.h"
 
 ATank::ATank()
 {
@@ -45,15 +44,7 @@ void ATank::Tick(float DeltaTime)
             false,
             HitResult); 
 
-        // Draw sphere in front of our tank
-        DrawDebugSphere(
-            GetWorld(), 
-            HitResult.ImpactPoint,
-            25.f,
-            12,
-            FColor::Red,
-            false,
-            -1.f);
+        RotateTurrent(HitResult.ImpactPoint);
     }
     
 }
