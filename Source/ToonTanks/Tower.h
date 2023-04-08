@@ -33,7 +33,10 @@ private:
 	FTimerHandle FireRateTimerHandle;
 	float FireRate = 2.f;
 
-	// Metho tyo Check Fire
+	// Method tyo Check Fire
 	void CheckFireCondition();
+
+	// Method to check Fire Range
+	bool InFireRange();
 
 };
