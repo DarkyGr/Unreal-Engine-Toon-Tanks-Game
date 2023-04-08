@@ -28,4 +28,12 @@ private:
 	// Variable to FireRange
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	float FireRange = 300.f;
+
+	// Varibale of Time to Fire
+	FTimerHandle FireRateTimerHandle;
+	float FireRate = 2.f;
+
+	// Metho tyo Check Fire
+	void CheckFireCondition();
+
 };
