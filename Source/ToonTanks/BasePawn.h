@@ -88,4 +88,9 @@ private:
 	// UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Nice Variables", meta = (AllowPrivateAccess = "true"))
 	// int32 EditAnyWhereInt = 12;
 
+
+	// Generate Projectiles
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	TSubclassOf<class AProjectile> ProjectileClass;
+
 };
