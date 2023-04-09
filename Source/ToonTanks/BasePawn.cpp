@@ -4,7 +4,8 @@
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
-#include "DrawDebugHelpers.h"
+#include "Projectile.h"
+// #include "DrawDebugHelpers.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -44,16 +45,21 @@ void ABasePawn::Fire()
 	// UE_LOG(LogTemp, Error, TEXT("FIREEEEE"));
 	
 	// Get Location of projectile
-	FVector ProjectileSpawnPointLocation = ProjectileSpawnPoint->GetComponentLocation();
+	FVector Location = ProjectileSpawnPoint->GetComponentLocation();
 	
 	// Draw sphere
-	DrawDebugSphere(
-		GetWorld(),
-		ProjectileSpawnPointLocation,
-		25.f,
-		12,
-		FColor::Red,
-		false,
-		3.f
-	);
+	// DrawDebugSphere(
+	// 	GetWorld(),
+	// 	ProjectileSpawnPointLocation,
+	// 	25.f,
+	// 	12,
+	// 	FColor::Red,
+	// 	false,
+	// 	3.f
+	// );
+
+	// Spawn Projectile
+	FRotator Rotation = ProjectileSpawnPoint->GetComponentRotation();
+
+	GetWorld()->SpawnActor<AProjectile>(ProjectileClass, Location, Rotation);
 }
