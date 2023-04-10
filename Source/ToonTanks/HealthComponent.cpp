@@ -19,7 +19,11 @@ void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// Set MaxHealt to Health
 	Health = MaxHealth;
+
+	// Addind Damage
+	GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::DamageTaken);
 }
 
 
@@ -29,5 +33,10 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+}
+
+void UHealthComponent::DamageTaken(AActor* DamageActor, float Damage, const UDamageType* DamageType, class AController* Instigator, AActor* DamageCauser)
+{
+
 }
 
