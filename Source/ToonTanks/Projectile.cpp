@@ -4,6 +4,8 @@
 #include "Projectile.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "GameFramework/DamageType.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -39,8 +41,29 @@ void AProjectile::Tick(float DeltaTime)
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 	// UE_LOG(LogTemp, Warning, TEXT("ON HIT"));
-	UE_LOG(LogTemp, Error, TEXT("HitComp: %s"), *HitComp->GetName());
-	UE_LOG(LogTemp, Warning, TEXT("OtherActor: %s"), *OtherActor->GetName());
-	UE_LOG(LogTemp, Display, TEXT("OtherComp: %s"), *OtherComp->GetName());
+	// UE_LOG(LogTemp, Error, TEXT("HitComp: %s"), *HitComp->GetName());
+	// UE_LOG(LogTemp, Warning, TEXT("OtherActor: %s"), *OtherActor->GetName());
+	// UE_LOG(LogTemp, Display, TEXT("OtherComp: %s"), *OtherComp->GetName());
+
+	// Set Owner
+	auto MyOwner = GetOwner();
+
+	// Check it doesn't be null
+	if (MyOwner == nullptr)
+	{
+		return;
+	}
+
+	// Set Instigator by Owner
+	auto MyOwnerInstigator = MyOwner->GetInstigatorController();
+
+	// Set Damage Type
+	auto DamageTypeClass = UDamageType::StaticClass();
+	
+	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
+	{
+		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, this, DamageTypeClass);		
+	}
+	
 }
 
