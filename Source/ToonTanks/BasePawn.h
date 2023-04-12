@@ -43,6 +43,9 @@ public:
 
 	*/
 
+	// Method to Destroy Actor
+	void HandleDestruction();
+
 protected:
 	// Method to Rotate Turrent
 	void RotateTurrent(FVector LookAtTarget);

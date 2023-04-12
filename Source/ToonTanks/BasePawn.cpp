@@ -28,6 +28,12 @@ ABasePawn::ABasePawn()
 
 }
 
+
+void ABasePawn::HandleDestruction()
+{
+	// All: Visual/Sound effects
+}
+
 void ABasePawn::RotateTurrent(FVector LookAtTarget)
 {
 	// Get "ToTarget" = TraceLocation - TurrentLocation
