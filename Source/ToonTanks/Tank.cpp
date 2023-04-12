@@ -47,12 +47,12 @@ void ATank::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
     // Check if PlayerControllerRef doesn't null
-    if (PlayerControllerRef)
+    if (TankPlayerController)
     {
         FHitResult HitResult;
 
         // Get the HitResult of Collisions Visibles
-        PlayerControllerRef->GetHitResultUnderCursor(
+        TankPlayerController->GetHitResultUnderCursor(
             ECollisionChannel::ECC_Visibility, 
             false,
             HitResult); 
@@ -68,7 +68,7 @@ void ATank::BeginPlay()
 	Super::BeginPlay();
 
     // Cast AController to PLayerController
-    PlayerControllerRef = Cast<APlayerController>(GetController());    
+    TankPlayerController = Cast<APlayerController>(GetController());    
 }
 
 void ATank::Move(float value)

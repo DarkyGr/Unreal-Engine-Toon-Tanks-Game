@@ -52,5 +52,5 @@ private:
 	// Method to Turn the tank
 	void Turn(float value);	
 
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 };
