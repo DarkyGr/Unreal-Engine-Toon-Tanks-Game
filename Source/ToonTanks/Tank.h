@@ -18,9 +18,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	// Method to Destroy Actor
-	void HandleDestruction();
-
 public:
 	ATank();
 
@@ -29,6 +26,12 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	// Method to Destroy Actor
+	void HandleDestruction();
+
+	// Get TankPlayerController
+	APlayerController* GetTankPlayerController() const{ return TankPlayerController; }
 
 private:
 	// Create Spring Arm Component
