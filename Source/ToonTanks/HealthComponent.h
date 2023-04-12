@@ -25,8 +25,12 @@ private:
 	float MaxHealth = 100.f;
 	float Health = 0.f;
 
+	// Metho to Damage Taken
 	UFUNCTION()
 	void DamageTaken(AActor* DamageActor, float Damage, const UDamageType* DamageType, class AController* Instigator, AActor* DamageCauser);
+
+	// References to AToonTanksGameMode
+	class AToonTanksGameMode* ToonTanksGameMode;
 
 public:	
 	// Called every frame
