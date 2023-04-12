@@ -31,6 +31,16 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
 
+void ATank::HandleDestruction()
+{
+    Super::HandleDestruction();
+    // Hidden Tank
+    SetActorHiddenInGame(true);
+    // Stop Time of Tank
+    SetActorTickEnabled(false);
+    
+}
+
 // Called every frame
 void ATank::Tick(float DeltaTime)
 {

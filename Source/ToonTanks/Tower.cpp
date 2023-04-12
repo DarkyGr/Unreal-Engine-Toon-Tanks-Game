@@ -17,6 +17,12 @@ void ATower::Tick(float DeltaTime)
     }
 }
 
+void ATower::HandleDestruction()
+{
+    Super::HandleDestruction();
+    Destroy();
+}
+
 // Called when the game starts or when spawned
 void ATower::BeginPlay()
 {
