@@ -26,5 +26,8 @@ private:
 	// Class Tank
 	class ATank* Tank;
 
+	// Class ToonTanksPlayerController
+	class AToonTanksPlayerController* ToonTanksPlayerController;
+
 	
 };
