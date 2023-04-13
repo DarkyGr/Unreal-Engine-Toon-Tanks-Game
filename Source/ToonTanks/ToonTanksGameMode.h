@@ -29,5 +29,9 @@ private:
 	// Class ToonTanksPlayerController
 	class AToonTanksPlayerController* ToonTanksPlayerController;
 
-	
+	// Delay of start the game
+	float StartDelay = 3.f;
+
+	// Method when Start the Game
+	void HandleGameStart();
 };

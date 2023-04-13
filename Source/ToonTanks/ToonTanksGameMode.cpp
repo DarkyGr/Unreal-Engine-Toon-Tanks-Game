@@ -39,10 +39,38 @@ void AToonTanksGameMode::BeginPlay()
 {
     Super::BeginPlay();
 
+    HandleGameStart();        
+}
+
+void AToonTanksGameMode::HandleGameStart()
+{
     // Set Player of Tank
     Tank = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
 
     // Set Player Controller of Toon Tanks Player Controller
     ToonTanksPlayerController = Cast<AToonTanksPlayerController>(UGameplayStatics::GetPlayerController(this, 0));
 
+    if (ToonTanksPlayerController)
+    {
+        // Set False to than the player no move the WASD
+        ToonTanksPlayerController->SetPlayerEnabledState(false);
+
+        // Create Varibale for Delay
+        FTimerHandle PlayerEnabledTimerHandle;
+        
+        // Create variable for delay
+        FTimerDelegate PlayerEnabledTimerDelegate = FTimerDelegate::CreateUObject(
+            ToonTanksPlayerController,
+            &AToonTanksPlayerController::SetPlayerEnabledState,
+            true
+        );
+
+        // Set 3 second delay in world
+        GetWorldTimerManager().SetTimer(PlayerEnabledTimerHandle,
+            PlayerEnabledTimerDelegate,
+            StartDelay,
+            false
+        );
+    }
+    
 }
