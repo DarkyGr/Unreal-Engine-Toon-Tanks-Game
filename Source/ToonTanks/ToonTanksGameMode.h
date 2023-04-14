@@ -23,6 +23,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	// Method to Start Game (Widget)
+	/*
+		UFUNCTION(BlueprintImplementableEvent) - This allows it to be called on the EVENT GRAPH 
+	*/
 	UFUNCTION(BlueprintImplementableEvent)
 	void StartGame();
 
