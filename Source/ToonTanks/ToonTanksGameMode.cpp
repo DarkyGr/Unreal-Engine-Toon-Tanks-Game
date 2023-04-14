@@ -50,6 +50,8 @@ void AToonTanksGameMode::HandleGameStart()
     // Set Player Controller of Toon Tanks Player Controller
     ToonTanksPlayerController = Cast<AToonTanksPlayerController>(UGameplayStatics::GetPlayerController(this, 0));
 
+    StartGame();
+
     if (ToonTanksPlayerController)
     {
         // Set False to than the player no move the WASD
@@ -71,6 +73,5 @@ void AToonTanksGameMode::HandleGameStart()
             StartDelay,
             false
         );
-    }
-    
+    }    
 }

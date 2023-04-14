@@ -22,6 +22,10 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Method to Start Game (Widget)
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame();
+
 private:
 	// Class Tank
 	class ATank* Tank;
@@ -29,9 +33,9 @@ private:
 	// Class ToonTanksPlayerController
 	class AToonTanksPlayerController* ToonTanksPlayerController;
 
-	// Delay of start the game
+	// Delay of start game
 	float StartDelay = 3.f;
 
-	// Method when Start the Game
+	// Method when Start Game
 	void HandleGameStart();
 };
