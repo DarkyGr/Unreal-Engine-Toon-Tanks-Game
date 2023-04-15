@@ -22,12 +22,18 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	// Method to Start Game (Widget)
+	
 	/*
 		UFUNCTION(BlueprintImplementableEvent) - This allows it to be called on the EVENT GRAPH 
 	*/
+	// Method to Start Game (Widget)
 	UFUNCTION(BlueprintImplementableEvent)
 	void StartGame();
+
+	// Method to Game Over (Tank Destroy)
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWonGame);
+
 
 private:
 	// Class Tank
@@ -41,4 +47,8 @@ private:
 
 	// Method when Start Game
 	void HandleGameStart();
+
+	// Towers Count
+	int32 TargetTowers = 0;
+	int32 GetTargetTowersCount();
 };
