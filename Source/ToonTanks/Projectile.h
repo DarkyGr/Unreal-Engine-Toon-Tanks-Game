@@ -34,9 +34,13 @@ private:
 	UPROPERTY(EditAnywhere)
 	float Damage = 50.f;
 
-	// Particle for Projectile
+	// Particles for Projectile Hit
 	UPROPERTY(EditAnywhere, Category = "Combat");
 	class UParticleSystem* HitParticles;
+
+	// Particles for Projectile Trail
+	UPROPERTY(VisibleAnywhere, Category = "Combat");
+	class UParticleSystemComponent* TrailParticles;
 
 public:	
 	// Called every frame
