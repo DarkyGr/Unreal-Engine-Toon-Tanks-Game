@@ -100,4 +100,8 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Combat");
 	class UParticleSystem* DeadParticles;
 
+	// Particles for Dead Tank or Turrent
+	UPROPERTY(EditAnywhere, Category = "Combat");
+	class USoundBase* DeathSound;
+
 };
