@@ -96,4 +96,8 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	TSubclassOf<class AProjectile> ProjectileClass;
 
+	// Particles to Dead
+	UPROPERTY(EditAnywhere, Category = "Combat");
+	class UParticleSystem* DeadParticles;
+
 };
