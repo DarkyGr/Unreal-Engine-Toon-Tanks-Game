@@ -33,7 +33,14 @@ ABasePawn::ABasePawn()
 void ABasePawn::HandleDestruction()
 {
 	// All: Visual/Sound effects
-	UGameplayStatics::SpawnEmitterAtLocation(this, DeadParticles, GetActorLocation(), GetActorRotation());
+
+	// Check if Exist Particles
+	if (DeadParticles)
+	{
+		// Adding Particles
+		UGameplayStatics::SpawnEmitterAtLocation(this, DeadParticles, GetActorLocation(), GetActorRotation());		
+	}
+	
 }
 
 void ABasePawn::RotateTurrent(FVector LookAtTarget)
