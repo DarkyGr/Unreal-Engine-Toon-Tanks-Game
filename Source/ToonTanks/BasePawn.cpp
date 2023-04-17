@@ -25,8 +25,6 @@ ABasePawn::ABasePawn()
 
 	ProjectileSpawnPoint = CreateAbstractDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurrentMesh);
-
-
 }
 
 
@@ -40,6 +38,13 @@ void ABasePawn::HandleDestruction()
 		// Adding Particles
 		UGameplayStatics::SpawnEmitterAtLocation(this, DeadParticles, GetActorLocation(), GetActorRotation());		
 	}
+
+	if (DeathSound)
+	{
+		// Adding Death Sound
+		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
+	}
+	
 	
 }
 

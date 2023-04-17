@@ -33,6 +33,14 @@ void AProjectile::BeginPlay()
 
 	// Dynamic to Projectile and Hit
 	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+
+	// Check if Exist LaunchSound
+	if (LaunchSound)
+	{
+		// Adding Launch Sound
+		UGameplayStatics::PlaySoundAtLocation(this, LaunchSound, GetActorLocation());
+	}
+	
 }
 
 // Called every frame
@@ -74,6 +82,12 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 		{
 			// Adding Particles
 			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), GetActorRotation());			
+		}		
+
+		if (HitSound)
+		{
+			// Adding Hit Sound
+			UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
 		}		
 	}
 
