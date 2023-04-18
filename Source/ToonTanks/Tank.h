@@ -33,6 +33,9 @@ public:
 	// Get TankPlayerController
 	APlayerController* GetTankPlayerController() const{ return TankPlayerController; }
 
+	// Variable to Dead Tank
+	bool bAlive = true;
+
 private:
 	// Create Spring Arm Component
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "POV", meta = (AllowPrivateAccess = "true"))

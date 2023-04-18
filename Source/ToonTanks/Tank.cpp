@@ -39,6 +39,8 @@ void ATank::HandleDestruction()
     // Stop Time of Tank
     SetActorTickEnabled(false);
     
+    // Set than the tank is dead
+    bAlive = false;
 }
 
 // Called every frame

@@ -58,7 +58,7 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 	// UE_LOG(LogTemp, Display, TEXT("OtherComp: %s"), *OtherComp->GetName());
 
 	// Set Owner
-	auto MyOwner = GetOwner();
+	AActor* MyOwner = GetOwner();
 
 	// Check it doesn't be null
 	if (MyOwner == nullptr)
@@ -68,10 +68,10 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 	}
 
 	// Set Instigator by Owner
-	auto MyOwnerInstigator = MyOwner->GetInstigatorController();
+	AController* MyOwnerInstigator = MyOwner->GetInstigatorController();
 
 	// Set Damage Type
-	auto DamageTypeClass = UDamageType::StaticClass();
+	UClass* DamageTypeClass = UDamageType::StaticClass();
 	
 	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
 	{
