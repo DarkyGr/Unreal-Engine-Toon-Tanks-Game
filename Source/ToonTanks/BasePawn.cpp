@@ -44,6 +44,12 @@ void ABasePawn::HandleDestruction()
 		// Adding Death Sound
 		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
 	}
+
+	if(DeathCameraShakeClass)
+	{
+		// Adding Death Camera Shake
+		GetWorld()->GetFirstPlayerController()->ClientPlayCameraShake(DeathCameraShakeClass);
+	}
 	
 	
 }
